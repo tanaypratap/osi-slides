@@ -10,20 +10,23 @@ layout: true
 ---
 
 # javascriptOps
+## osi2019.tanaypratap.com
 
 ---
 layout: false
 
 # Agenda
 
-TBD
+Webpack
+Build Performance
+Some more live coding, if time permits
 
 ---
-layout: false
+layout: inverse
 
 # Who's this guy?
 
-TBD
+Let me tell you
 
 ---
 template: inverse
@@ -35,7 +38,7 @@ layout: false
 
 # Why JavaScriptOps?
 
-TBD
+Let me tell you a story
 
 ---
 template: inverse
@@ -371,11 +374,11 @@ template: center
 
 ---
 
-# config.json
+# webpack.config.js
 
-1. Add a file **config.json** at the root of project
+1. Add a file **webpack.config.js** at the root of project
 ```bash
-touch config.json
+touch webpack.config.js
 ```
 2. Add this to the file. We'll discuss the details in two minutes.
 
@@ -413,7 +416,7 @@ template: inverse
 
 template: inverse
 
-# NPM scripts
+# npm scripts
 
 ---
 
@@ -428,6 +431,51 @@ template: inverse
 npm run build
 ```
 Note: This too is a convention. If you're writing a package, start, build, and test are common commands which everyone uses.
+
+---
+class: middle
+
+#😎
+## exercise 3  
+
+1. Change the config so that the output file is *bundle.js* instead of *main.js*
+
+1. Delete the old *main.js* file
+
+1. It would be good to test the `npm run build` command.
+
+1. See if you're getting the output in browser.
+
+---
+class: middle
+
+# 👻
+## exercise 3 
+## answer
+
+1. Change
+
+```javascript
+ output: {
+    filename: 'main.js',
+```
+to
+
+```javascript
+ output: {
+    filename: 'bundle.js',
+```
+
+1. Don't forget to update the file name to *bundle.js* in *index.html* as well
+
+1. Update *.gitignore* as well
+
+---
+
+template: inverse
+
+# git checkout webpack-loader
+if you're stuck and need to see the complete code for this part
 
 ---
 
@@ -445,13 +493,154 @@ template: inverse
 # core webpack concepts 🎒
 
 ---
+class: inverse, center
+
+# core webpack concepts
+
+## let's understand the what and why of webpack
+
+### entry
+### output
+### loaders
+### plugins
+### mode
+
+---
+
+# entry
+
+1. Point from where webpack builds it's dependency graph.
+1. Like the one we saw just now.
+
+```javascript
+module.exports = {
+  entry: './src/index.js'
+};
+```
+1. There can be multiple entry points too. For multi-page Apps. 
+
+```javascript
+module.exports = {
+  entry: {
+    pageOne: './src/pageOne/index.js',
+    pageTwo: './src/pageTwo/index.js',
+    pageThree: './src/pageThree/index.js'
+  }
+};
+```
+This is useful when all the apps are having same dependencies. Say, Microsoft Office has mail and calendar app both having a lot of common dependecies.
+
+---
+
+# output
+
+1. Tells webpack how to write the compiled files to use
+1. Like the one we saw just now.
+
+```javascript
+module.exports = {
+  output: {
+    filename: 'bundle.js',
+  }
+};
+```
+
+Let's see some advanced use cases next
+---
+
+## output: advanced use case 1
+
+### **substitution** in case of multiple entry point app.
+
+```javascript
+module.exports = {
+  entry: {
+    app: './src/app.js',
+    search: './src/search.js'
+  },
+  output: {
+    filename: '[name].js',
+    path: __dirname + '/dist'
+  }
+};
+
+// writes to disk: ./dist/app.js, ./dist/search.js
+```
+---
+
+## output: advanced use case 2
+
+### **publicPath** for CDN and hashes. 
+
+Hashes are used for **cache-busting** which we'll talk about in optimizing performance. 
+
+This is needed if you're using something like *HtmlWebpackPlugin* which we will see in the plugin section soon.
+```javascript
+module.exports = {
+  //...
+  output: {
+    path: '/home/proj/cdn/assets/[hash]',
+    publicPath: 'https://cdn.example.com/assets/[hash]/'
+  }
+};
+```
+---
 
 template: inverse
 
-# git checkout webpack-loader
+# now let's try a loader
+make sure that you're on the webpack-loader branch
+
+---
+
+# raw-loader
+
+It loads a file and provides its contnet
+
+1. Install the loader using npm
+```bash
+npm install raw-loader --save-dev
+```
+
+1. Create a *file.txt* and put some content
+```bash
+echo "Hi! This is Tanay" >> file.txt
+```
+
+---
+
+# raw-loader contd..
+
+1. Update the webpack.config.js file to use this loader
+
+```javascript
+ module: {
+    rules: [
+      {
+        test: /\.txt$/i,
+        use: 'raw-loader',
+      },
+    ],
+  },
+  ```
+---
+
+# raw-loader contd..
+
+1. Read this in your **index.js** file
+
+```javascript
+import txt from './file.txt';
+
+console.log(txt);
+```
+
+1. Run webpack 
+
+1. Check console in browser to see the output
 
 ---
 
 template: inverse
 
-# this is testing
+# git checkout webpack-plugin
