@@ -16,7 +16,7 @@ layout: true
 template: inverse
 
 # javascriptOps
-### find slide at osi2019.tanaypratap.com
+### find slides at osi2019.tanaypratap.com
 
 ---
 class: inverse
