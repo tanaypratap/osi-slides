@@ -1,6 +1,8 @@
 name: inverse
 class: center, middle, inverse
 layout: true
+
+.topnote[ find me on ***twitter.com/tanaypratap*** ]
 ---
 
 name: center
