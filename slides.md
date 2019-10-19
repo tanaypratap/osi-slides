@@ -1,55 +1,66 @@
 name: inverse
 class: center, middle, inverse
 layout: true
-
-.topnote[ find me on ***twitter.com/tanaypratap*** ]
+.topnote[ ***@tanaypratap { twitter, linkedin, github, instagram }*** ]
 ---
 
 name: center
 class: center, middle
 layout: true
-
+.topnote[ ***@tanaypratap { twitter, linkedin, github, instagram }*** ]
 ---
+
+layout: true
+.topnote[ ***@tanaypratap { twitter, linkedin, github, instagram }*** ]
+---
+template: inverse
 
 # javascriptOps
-## osi2019.tanaypratap.com
+### find slide at osi2019.tanaypratap.com
 
 ---
-layout: false
+class: inverse
 
 # Agenda
 
-Webpack
-Build Performance
-Some more live coding, if time permits
+### know your instructor
+### getting started with Webpack
+### all hands-on coding with exercies
+### imporoving your site performance using build tools 
+### some more live coding, if time permits
 
 ---
-layout: inverse
+class: inverse
 
-# Who's this guy?
+# Instructor Intro
 
-Let me tell you
+### works at Microsoft, in Outlook Web Team.
+### teaches coding for free on [learncodingfree.org](https://learncodingfree.org)
+### hosts a podcast on tech and startups: [teawithtanay](https://teawithtanay.com)
+### [speaks](https://tanaypratap.com/talks) at local meetups and international conferences
+### dangerously active on social media 
+### find everything on [tanaypratap.com](https://tanaypratap.com)
+
 
 ---
 template: inverse
-
-# Introduction
-
----
-layout: false
 
 # Why JavaScriptOps?
 
-Let me tell you a story
+### story of my time at startup
+
+### and how Microsoft was a change of pace
+
+### story of personal projects
+
+### did I tell you the story my Flipkart friend told me about Big Billion Days?
 
 ---
 template: inverse
 
-# Things needed for this workshop
+# things needed for this workshop
 
 ---
-layout: false
-
 .left-column[
     ## Installations or Accounts needed
 ]
@@ -63,7 +74,6 @@ layout: false
 ]
 
 ---
-layout: false
 
 .left-column[
     ## let's get started
@@ -645,4 +655,50 @@ console.log(txt);
 
 template: inverse
 
-# git checkout webpack-plugin
+# time constraint
+## we conclude the hands-on session now
+
+---
+
+template: inverse
+
+# [documentation browsing](https://webpack.js.org) for more
+
+## discussion around advanced features
+## how to make your app more performant?
+
+---
+
+template: inverse
+
+# AMA around the workshop
+
+---
+
+template: inverse
+
+# Quiz time
+## Raise hand to answer and win swag
+
+---
+
+template: inverse
+
+# live demo for Azure DevOps
+## [Check out docs around Azure Pipelines](https://azure.microsoft.com/en-in/services/devops/pipelines/)
+## It's free for OSS projects and personal use as well
+
+---
+
+template: inverse
+
+# 🙏
+## thank you! 
+### i hope you loved it
+### feedbacks are appreciated on social media channels
+#### find me on [tanaypratap.com](https://tanaypratap.com)
+
+---
+template: inverse
+
+left blank intentionally

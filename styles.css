@@ -27,6 +27,7 @@ h3 {
 }
 
 .topnote {
+  font-size: 0.7em;
   top: 12px;
   opacity: .5;
   position: absolute;
